@@ -30,4 +30,13 @@ export class AppComponent {
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log("Favorite changed: ", eventArgs);
   }
+
+  onAdd() {
+    this.recommendations.push({id: 4, name: 'recommendation4'});
+  }
+
+  onRemove(recommendation: any) {
+    let index = this.recommendations.indexOf(recommendation);
+    this.recommendations.splice(index, 1);
+  }
 }

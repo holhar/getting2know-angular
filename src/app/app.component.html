@@ -28,9 +28,11 @@
 ></like>
 
 <hr />
+<button (click)="onAdd()">Add</button>
 <ul>
     <li *ngFor="let recommendation of recommendations; even as isEven">
         {{ recommendation.name }} <span *ngIf="isEven">(EVEN)</span>
+        <button (click)="onRemove(recommendation)">Remove</button>
     </li>
 </ul>
 
