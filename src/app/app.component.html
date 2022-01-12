@@ -8,6 +8,7 @@
 <hr/>
 <favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
 <hr />
+
 <bootstrap-panel>
     <ng-container class="heading">Heading</ng-container>
     <div class="body">
@@ -15,3 +16,10 @@
         <p>Some content here...</p>
     </div>
 </bootstrap-panel>
+
+<hr />
+
+<like
+    [likesCount]="tweet.likesCount"
+    [isActive]="tweet.isLiked"
+></like>
