@@ -1,14 +1,18 @@
 <h1>Angular</h1>
+
 <hr/>
 <courses></courses>
+
 <hr/>
 <course></course>
+
 <hr/>
 <authors></authors>
+
 <hr/>
 <favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
-<hr />
 
+<hr />
 <bootstrap-panel>
     <ng-container class="heading">Heading</ng-container>
     <div class="body">
@@ -18,8 +22,16 @@
 </bootstrap-panel>
 
 <hr />
-
 <like
     [likesCount]="tweet.likesCount"
     [isActive]="tweet.isLiked"
 ></like>
+
+<hr />
+<div *ngIf="wishes.length > 0; then wishesList else noWisches"></div>
+<ng-template #wishesList>
+    List of wisches
+</ng-template>
+<ng-template #noWisches>
+    No wishes yet
+<ng-template>
