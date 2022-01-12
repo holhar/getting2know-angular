@@ -7,16 +7,19 @@ import { CoursesService } from './courses.service';
     template: `
         <h2>{{ title }}</h2>
         <img [src]="imageUrl" />
-        <ul>
-            <li *ngFor="let course of courses">
-                {{ course }}
-            </li>
-        </ul>
+        <table>
+            <tr>
+                <td *ngFor="let course of courses" [attr.colSpan]="colSpan">
+                    {{ course }}
+                </td>
+            </tr>
+        </table>
     `
 })
 export class CoursesComponent {
     title = "List of courses";
     imageUrl = "https://picsum.photos/400/200"
+    colSpan = 2;
     courses;
 
     constructor(service: CoursesService) {
