@@ -14,7 +14,13 @@ import { CoursesService } from './courses.service';
                 </td>
             </tr>
         </table>
-        <button class="btn btn-primary" [class.active]="isActive">Save</button>
+        <button 
+            class="btn btn-primary" 
+            [class.active]="isActive"
+            [style.backgroundColor]="isActive ? 'hotpink' : 'white'"
+        >
+            Save
+        </button>
     `
 })
 export class CoursesComponent {
