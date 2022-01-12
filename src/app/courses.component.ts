@@ -24,7 +24,8 @@ import { CoursesService } from './courses.service';
                 Save
             </button>
         </div>
-        <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+        <input [(ngModel)]="text" (keyup.enter)="onKeyUp()" />
+        <div>{{ text | casing }} </div>
     `
 })
 export class CoursesComponent {
@@ -33,7 +34,7 @@ export class CoursesComponent {
     colSpan = 2;
     isActive = true;
     courses;
-    email = "me@example.com";
+    text = "me@example.com";
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
@@ -51,6 +52,6 @@ export class CoursesComponent {
     }
 
     onKeyUp() {
-        console.log(this.email);
+        console.log(this.text);
     }
 }
