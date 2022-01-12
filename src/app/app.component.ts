@@ -9,6 +9,11 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component';
 export class AppComponent {
   title = 'Getting to know Angular';
   wishes = [1, 2];
+  recommendations = [
+    { id: 1, name: 'recommendation1'},
+    { id: 2, name: 'recommendation2'},
+    { id: 3, name: 'recommendation3'},
+  ]
   viewMode = 'map';
 
   post = {
