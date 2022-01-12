@@ -29,9 +29,10 @@
 
 <hr />
 <button (click)="onAdd()">Add</button>
+<button (click)="loadCourses()">Load Recommendations</button>
 <ul>
-    <li *ngFor="let recommendation of recommendations; even as isEven">
-        {{ recommendation.name }} <span *ngIf="isEven">(EVEN)</span>
+    <li *ngFor="let recommendation of recommendations; trackBy: trackRecommendation">
+        {{ recommendation.name }}
         <button (click)="onRemove(recommendation)">Remove</button>
     </li>
 </ul>
