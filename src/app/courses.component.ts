@@ -14,6 +14,7 @@ import { CoursesService } from './courses.service';
                 </td>
             </tr>
         </table>
+        <button class="btn btn-primary">Save</button>
     `
 })
 export class CoursesComponent {
