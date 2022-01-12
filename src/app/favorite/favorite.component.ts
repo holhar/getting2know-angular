@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.css']
 })
-export class FavoriteComponent {
-  isFilled: boolean = false;
+export class FavoriteComponent implements OnInit {
+  @Input() isFavorite: boolean = false;
 
   constructor() { }
 
+  ngOnInit(): void {
+  }
+
   onClick() {
-    this.isFilled = !this.isFilled;
+    this.isFavorite = !this.isFavorite;
   }
 
 }
