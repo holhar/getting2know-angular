@@ -24,6 +24,13 @@ export class AppComponent {
     isLiked: false
   };
 
+  task = {
+    title: 'Review applications',
+    assignee: {
+      name: 'John Doe'
+    }
+  }
+
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs) {
     console.log("Favorite changed: ", eventArgs);
   }

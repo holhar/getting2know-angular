@@ -49,6 +49,9 @@ Save
 </button>
 
 <hr />
+<span>{{ task.assignee?.name }}</span>
+
+<hr />
 <ul class="navbar navbar-nav">
     <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
     <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List View</a></li>
