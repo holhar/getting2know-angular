@@ -28,10 +28,9 @@
 ></like>
 
 <hr />
-<div *ngIf="wishes.length > 0; then wishesList else noWisches"></div>
-<ng-template #wishesList>
+<div [hidden]="wishes.length == 0">
     List of wisches
-</ng-template>
-<ng-template #noWisches>
+</div>
+<div [hidden]="wishes.length > 0">
     No wishes yet
-<ng-template>
+<div>
