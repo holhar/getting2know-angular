@@ -14,13 +14,16 @@ import { CoursesService } from './courses.service';
                 </td>
             </tr>
         </table>
-        <button 
-            class="btn btn-primary" 
-            [class.active]="isActive"
-            [style.backgroundColor]="isActive ? 'hotpink' : 'white'"
-        >
-            Save
-        </button>
+        <div (click)="onDivClicked()">
+            <button 
+                class="btn btn-primary" 
+                [class.active]="isActive"
+                [style.backgroundColor]="isActive ? 'hotpink' : 'blue'"
+                (click)="onSave($event)"
+            >
+                Save
+            </button>
+        </div>
     `
 })
 export class CoursesComponent {
@@ -32,5 +35,16 @@ export class CoursesComponent {
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
+    }
+
+    onSave($event: any) {
+        // Stop event progation -> 'onDivClicked' will NOT be triggered
+        $event.stopPropagation();
+        this.isActive = !this.isActive;
+        console.log("Button was clicked", $event);
+    }
+
+    onDivClicked() {
+        console.log("Div was clicked");
     }
 }
