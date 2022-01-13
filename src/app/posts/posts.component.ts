@@ -40,4 +40,13 @@ export class PostsComponent {
         console.log(response);
       });
   };
+
+  deletePost(post:any) {
+    this.http.delete(this.url + '/' + post.id)
+      .subscribe(data => {
+        let response = JSON.parse(JSON.stringify(data));
+        let index = this.posts.indexOf(post);
+        this.posts.splice(index, 1);
+      })
+  }
 }
