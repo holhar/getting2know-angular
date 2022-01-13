@@ -31,4 +31,13 @@ export class PostsComponent {
           console.log(response);
         });
   }
+
+  updatePost(post: any) {
+    //this.http.put(this.url, JSON.stringify(post))
+    this.http.patch(this.url + '/' + post.id, JSON.stringify({ isRead: true }))
+      .subscribe(data => {
+        let response = JSON.parse(JSON.stringify(data));
+        console.log(response);
+      });
+  };
 }
