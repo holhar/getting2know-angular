@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { map } from 'rxjs';
 import { AppError } from '../common/app-error';
 import { BadRequestError } from '../common/bad-request-error';
 import { NotFoundError } from '../common/not-found-error';
@@ -14,20 +15,36 @@ export class DataService {
   constructor(@Inject(String) private url: string, private http: HttpClient) {}
 
   getAll() {
-    return this.http.get(this.url).pipe(catchError(this.handleError));
+    return this.http.get(this.url)
+        .pipe(
+            map(data => JSON.parse(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
   }
 
   create(resource: any) {
-    return this.http.post(this.url, JSON.stringify(resource)).pipe(catchError(this.handleError));
+    return this.http.post(this.url, JSON.stringify(resource))
+        .pipe(
+            map(data => JSON.parse(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
   }
 
   update(resource: any) {
     //this.http.put(this.url, JSON.stringify(post))
-    return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true })).pipe(catchError(this.handleError));
+    return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true }))
+        .pipe(
+            map(data => JSON.parse(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
   }
 
   delete(id: number) {
-    return this.http.delete(this.url + '/' + id).pipe(catchError(this.handleError));
+    return this.http.delete(this.url + '/' + id)
+        .pipe(
+            map(data => JSON.parse(JSON.stringify(data))),
+            catchError(this.handleError)
+        );
   }
 
   private handleError(error: any) {
